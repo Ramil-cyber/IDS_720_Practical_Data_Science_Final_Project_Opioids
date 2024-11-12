@@ -1,1 +1,6 @@
 Please leave any comments and notification
+
+00_Data
+    01_Raw : Prescription(Shippment), Mortaility + (external) Population, etc
+    02_Processing : 
+    03_Results :

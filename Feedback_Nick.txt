@@ -1,0 +1,23 @@
+1. For control groups, you'll want to select a set of control states for each FL and WA.
+You may do a pooled analysis as well, but you should plan on analyzing the two states separate, 
+and potentially with distinct control samples. 
+
+2. As discussed in class, deciding how many units to include as controls is a balancing act
+— more controls means more statistical power, 
+but to get more controls you have to include controls that are of decreasing similarity. 
+So you have to justify your choice on that topic.
+However, I will say you should work with at least three control states per state being studied. 
+
+
+3. The idea here is to specify the variables that would be an input to your analysis, 
+not to speak in general terms about data. 
+Can you make the plots above with "number of opioids prescribed per county per year"? or "opioid volume"? (no). 
+Many people have answers where, reading between the lines, 
+I can see they probably get it, but I think an ideal response here would be "opioid shipments per capita in [units]". 
+That kind of specificity helps readers notice precisely what they need to compute that.
+Don't straight into potential sources and datasets, or types of data before doing the really granular, concrete part.
+
+To-do
+ - Set 3 control groups for FL, DC each (Econ, Geo, Trend..)
+ - Specify Variable names (e.g: MME, CALC, Dosage Unit)
+ - Missing value(the mortality of drug use less than 10) treatment (Estimation model based on similar chraterestics, Deletion ..)
