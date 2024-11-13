@@ -18,6 +18,6 @@ That kind of specificity helps readers notice precisely what they need to comput
 Don't straight into potential sources and datasets, or types of data before doing the really granular, concrete part.
 
 To-do
- - Set 3 control groups for FL, DC each (Econ, Geo, Trend..)
+ - Set 3 control groups for FL, DC each (Econ, Geo, Trend)
  - Specify Variable names (e.g: MME, CALC, Dosage Unit)
  - Missing value(the mortality of drug use less than 10) treatment (Estimation model based on similar chraterestics, Deletion ..)
