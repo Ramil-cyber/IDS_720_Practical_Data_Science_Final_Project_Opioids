@@ -9,7 +9,7 @@ import matplotlib.lines as mlines
 pd.set_option("display.max_columns", None)
 
 mortality_data = pd.read_csv(
-    "https://raw.githubusercontent.com/MIDS-at-Duke/opioids-2024-optoid-drug-mortality-group5/refs/heads/tursunait-mortality-1/01_Data/03_Results/mortality_population.csv?token=GHSAT0AAAAAACZHZQITZSCVIT7OLYF6BBKAZ2CPIDA"
+    "https://https://raw.githubusercontent.com/MIDS-at-Duke/opioids-2024-optoid-drug-mortality-group5/refs/heads/main/01_Data/03_Results/mortality_population.csv?token=GHSAT0AAAAAACZHZQISO6K6XW7N2PGZ25LOZ2EHZJQ"
 )
 mortality_data
 
@@ -30,6 +30,7 @@ ylabels = f"Mortality per 1 mln people"
 ylabels
 
 mortality_data
+
 
 def prepare_data(
     dataset,
@@ -70,6 +71,7 @@ def prepare_data(
 
     return filtered_dataset
 
+
 def pre_post_plot(dataset_2, testing_state, pol_implem_year, metric_column):
     """
     Parameters:
@@ -85,11 +87,11 @@ def pre_post_plot(dataset_2, testing_state, pol_implem_year, metric_column):
 
     # Defining the data for pre-policy and post-policy analysis
     pre_policy_data = dataset[
-        (dataset["STATE"] == testing_state) & (dataset["POLICY_IMPLEMENTATION"] == True)
+        (dataset["STATE"] == testing_state) & (dataset["POLICY_IMPLEMENTATION"] == False)
     ]
     post_policy_data = dataset[
         (dataset["STATE"] == testing_state)
-        & (dataset["POLICY_IMPLEMENTATION"] == False)
+        & (dataset["POLICY_IMPLEMENTATION"] == True)
     ]
 
     # Ploting pre-policy trend line
@@ -97,7 +99,7 @@ def pre_post_plot(dataset_2, testing_state, pol_implem_year, metric_column):
         data=pre_policy_data,
         x="YEAR",
         y=metric_column,
-        line_kws={"color": "red"},
+        line_kws={"color": "blue"},
         ax=ax,
         scatter=False,
     )
@@ -107,7 +109,7 @@ def pre_post_plot(dataset_2, testing_state, pol_implem_year, metric_column):
         data=post_policy_data,
         x="YEAR",
         y=metric_column,
-        line_kws={"color": "blue"},
+        line_kws={"color": "red"},
         ax=ax,
         scatter=False,
     )
@@ -132,6 +134,7 @@ def pre_post_plot(dataset_2, testing_state, pol_implem_year, metric_column):
 
     # Showing the plot
     plt.show()
+
 
 def dif_dif_plot(
     dataset_2, testing_state, controlling_state, pol_implem_year, metric_column
@@ -215,6 +218,7 @@ def dif_dif_plot(
     # Showing plot
     plt.show()
 
+
 def all_states_plot(dataset_2, pol_implem_year, metric_column, norm_mort_mult=1000000):
 
     # Creating a copy of the dataset to avoid modifying the original DataFrame
@@ -261,6 +265,8 @@ def all_states_plot(dataset_2, pol_implem_year, metric_column, norm_mort_mult=10
     plt.show()
 
     # Defining the testing state for the analysis
+
+
 testing_state = "WA"
 
 # Listing of controlling states for comparison
@@ -326,4 +332,3 @@ pre_post_plot(mortality_plot, testing_state, pol_implem_year, "MORM_MORT_MULT")
 dif_dif_plot(
     mortality_plot, testing_state, controlling_states, pol_implem_year, "MORM_MORT_MULT"
 )
-
