@@ -1,77 +1,3 @@
-# Updated Code with Smaller Chunk Size and Sequential Processing:
-# Here’s the modified version of your code that uses 10 million rows per chunk and processes the file sequentially
-# Note that this now includes the GC to try and reduce the linear increase in runtimes for each chunk. 
-#  The time without gc ran for 762 minutes, so this should run faster hopefully
-# chunk size is 10000000, optimized for 32GB ram, though it needs to be checked to see if GC improved this and can handle larger chunk sizes
-# OUTPUT RESULTS: 60 distinct state list
-
-#count of rows from the original tsv should be this:
-# I also verify the output state specific files sum to 759,908,394, and the original tsv file was 759,908,393. I think it is off by 1 because of the row header
-state_counts = [
-    ("AA", 3),
-    ("AE", 15),
-    ("AK", 1592736),
-    ("AL", 17018693),
-    ("AP", 1722),
-    ("AR", 9132510),
-    ("AS", 1296),
-    ("AZ", 15208382),
-    ("CA", 58303615),
-    ("CO", 12071646),
-    ("CT", 7630843),
-    ("DC", 672652),
-    ("DE", 2461249),
-    ("FL", 46733822),
-    ("GA", 27184152),
-    ("GU", 26871),
-    ("HI", 2169795),
-    ("IA", 6576829),
-    ("ID", 3930467),
-    ("IL", 31803400),
-    ("IN", 19868434),
-    ("KS", 7481557),
-    ("KY", 14976833),
-    ("LA", 12162850),
-    ("MA", 12428029),
-    ("MD", 12612161),
-    ("ME", 3763923),
-    ("MI", 24614380),
-    ("MN", 9989139),
-    ("MO", 17290906),
-    ("MP", 8731),
-    ("MS", 10242405),
-    ("MT", 3022745),
-    ("NC", 27391710),
-    ("ND", 1602563),
-    ("NE", 4174718),
-    ("NH", 3405079),
-    ("NJ", 18182696),
-    ("NM", 4209249),
-    ("NV", 6193792),
-    ("NY", 38782438),
-    ("OH", 37950242),
-    ("OK", 12579175),
-    ("OR", 10118547),
-    ("PA", 32841023),
-    ("PR", 1010559),
-    ("PW", 137),
-    ("RI", 2277760),
-    ("SC", 12163348),
-    ("SD", 1804095),
-    ("TN", 25133974),
-    ("TX", 55886524),
-    ("UT", 8036219),
-    ("VA", 16695504),
-    ("VI", 44844),
-    ("VT", 1794932),
-    ("WA", 16639628),
-    ("WI", 21926619),
-    ("WV", 6569636),
-    ("WY", 1510592)
-]
-
-
-
 import pandas as pd
 import os
 import time
@@ -167,11 +93,11 @@ def process_file(encoding='ISO-8859-1'):
         else:
             chunk_number += 1
 
-    # After all chunks are processed, print out distinct 2-letter states and their row counts
+    # Print out distinct 2-letter states and their row counts
     print("\nDistinct 2-letter states and their row counts:")
     for state, count in sorted(all_state_counts.items()):
         if len(state) == 2:  # Filter out non-2-letter state codes
             print(f"{state}: {count}")
 
 # Call the process_file function to start the processing with the correct encoding
-process_file(encoding='ISO-8859-1')  # Replace with the encoding that worked for you
+process_file(encoding='ISO-8859-1')
