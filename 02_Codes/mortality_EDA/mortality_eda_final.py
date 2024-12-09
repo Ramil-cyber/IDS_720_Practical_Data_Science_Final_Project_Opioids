@@ -9,7 +9,7 @@ import matplotlib.lines as mlines
 pd.set_option("display.max_columns", None)
 
 mortality_data = pd.read_csv(
-    "https://https://raw.githubusercontent.com/MIDS-at-Duke/opioids-2024-optoid-drug-mortality-group5/refs/heads/main/01_Data/03_Results/mortality_population.csv?token=GHSAT0AAAAAACZHZQISO6K6XW7N2PGZ25LOZ2EHZJQ"
+    "https://raw.githubusercontent.com/MIDS-at-Duke/opioids-2024-optoid-drug-mortality-group5/refs/heads/main/01_Data/03_Results/mortality_population.csv?token=GHSAT0AAAAAACZHZQISHE5YKXIUJI4HTRPAZ2VAFTQ"
 )
 mortality_data
 
